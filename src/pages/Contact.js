@@ -17,10 +17,14 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://your-backend-url.onrender.com/api/queries", formData);
+      const res = await axios.post(
+        "https://internship-website-backend.onrender.com/api/queries",
+        formData
+      );
       setResponseMessage(res.data.message);
       setFormData({ name: "", email: "", message: "" }); // Clear form after submission
     } catch (error) {
+      console.error("Form submission error:", error);
       setResponseMessage("Failed to submit. Try again later.");
     }
   };
